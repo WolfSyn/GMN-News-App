@@ -1,6 +1,6 @@
 import requests
 
-api_key = 'your_api_key'
+api_key = 'ebafa8a06ba549329d87e94b5fa6a95a'
 url = f'https://api.rawg.io/api/games?key={api_key}'
 response = requests.get(url)
 data = response.json()
