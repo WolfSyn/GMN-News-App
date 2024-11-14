@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gaming News</title>
+</head>
+<body>
+    <h1>Gaming News</h1>
+    <select id="category" onchange="fetchNews()">
+        <option value="games">Games</option>
+        <option value="developers">Developers</option>
+        <option value="publishers">Publishers</option>
+    </select>
+    <ul id="news-list"></ul>
+
+    <script>
+        function fetchNews() {
+            const category = document.getElementById('category').value;
+            fetch(`/gaming-news?category=${category}`)
+                .then(response => response.json())
+                .then(data => {
+                    const newsList = document.getElementById('news-list');
+                    newsList.innerHTML = '';
+                    data.forEach(article => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = article.name;
+                        newsList.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching news:', error);
+                });
+        }
+
+        // Fetch default category news on load
+        fetchNews();
+    </script>
+</body>
+</html>
