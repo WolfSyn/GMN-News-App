@@ -11,14 +11,14 @@ enum ViewStack {
     case login
     case registration
 }
-
+// This will take you to the main page on what you want to get into either you register or login
 struct WelcomeView: View {
     @State private var presentNextView = false
     @State private var nextView: ViewStack = .login
     var body: some View {
         NavigationStack {
             VStack {
-                Image("work-from-home")
+                Image("work-from-home") // change to your dedicated background as in logo or other image
                     .resizable()
                     .scaledToFit()
                     .frame(width: 370)
@@ -38,7 +38,7 @@ struct WelcomeView: View {
                     .padding(.bottom, 8)
                 
                 Spacer()
-                
+                // The start of the login button
                 HStack(spacing: 12) {
                     Button {
                         nextView = .login
@@ -52,7 +52,7 @@ struct WelcomeView: View {
                     .frame(width: 160, height: 60)
                     .background(Color("PrimaryBlue"))
                     .cornerRadius(12)
-                    
+                    // The start of the Register Button
                     Button {
                         nextView = .registration
                         presentNextView.toggle()
@@ -66,7 +66,7 @@ struct WelcomeView: View {
                 }
                 
                 Spacer()
-            }
+            }// When clicking login or Resigter button it will take you to dedeicated location
             .padding()
             .navigationDestination(isPresented:
                 $presentNextView) {
