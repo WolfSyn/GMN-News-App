@@ -10,13 +10,13 @@ import SwiftUI
 struct RegistrationView: View {
     @EnvironmentObject var viewModel: ViewModel
     @Environment(\.dismiss) var dismiss
-    @State private var emailText = ""
-    @State private var passwordText = ""
-    @State private var confirmPasswordText = ""
+    @State private var emailText = "" //This cooralates with "EMAIL"
+    @State private var passwordText = "" // This coorlates with "PASSWORD"
+    @State private var confirmPasswordText = "" // This coorlates with "CONFIRMPASSWORD"
 
-    @State private var isValidEmail = true
-    @State private var isValidPassword = true
-    @State private var isConfirmPasswordValid = true
+    @State private var isValidEmail = true // This validates the "EMAIL" (if it does not have the @ symbol then it won't work)
+    @State private var isValidPassword = true // This validates the "PASSWORD"
+    @State private var isConfirmPasswordValid = true // This validates the Confirmed Password again the 2nd time
 
     @State private var showSheet = false
     
@@ -34,10 +34,10 @@ struct RegistrationView: View {
                 if viewModel.isLoading{
                     ProgressView()
                 }
-                VStack {
+                VStack { // The start of registration page 
                     Text("Create Account")
                         .font(.system(size: 30, weight: .bold))
-                        .foregroundColor(Color("PrimaryBlue"))
+                        .foregroundColor(Color("PrimaryGray"))
                         .padding(.bottom)
                         .padding(.top, 48)
                     Text("Create an account so you can explore all on what's happening in the world of Gaming")
