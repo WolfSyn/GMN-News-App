@@ -7,17 +7,18 @@
 
 import SwiftUI
 
-enum ViewStack {
-    case login
-    case registration
+enum ViewStack { // Use this code to change next screen 
+    case login // e.g. -> when click login it will take you to that page
+    case registration // e.g. -> when click registration it will take you to that page
 }
 // This will take you to the main page on what you want to get into either you register or login
 struct WelcomeView: View {
-    @State private var presentNextView = false
+    @State private var presentNextView = false //This goes with the enum case, also the one under it. 
     @State private var nextView: ViewStack = .login
     var body: some View {
         NavigationStack {
             VStack {
+                //start of the logo-
                 Image("work-from-home") // change to your dedicated background as in logo or other image
                     .resizable()
                     .scaledToFit()
@@ -41,7 +42,7 @@ struct WelcomeView: View {
                 // The start of the login button
                 HStack(spacing: 12) {
                     Button {
-                        nextView = .login
+                        nextView = .login //present where it will navigate to its next page.
                         presentNextView.toggle()
                     } label: {
                         Text("Login")
@@ -54,7 +55,7 @@ struct WelcomeView: View {
                     .cornerRadius(12)
                     // The start of the Register Button
                     Button {
-                        nextView = .registration
+                        nextView = .registration // present where it will navigate towards
                         presentNextView.toggle()
                     } label: {
                         Text("Register")
@@ -69,8 +70,8 @@ struct WelcomeView: View {
             }// When clicking login or Resigter button it will take you to dedeicated location
             .padding()
             .navigationDestination(isPresented:
-                $presentNextView) {
-                switch nextView {
+                $presentNextView) { // The start of switching screens
+                switch nextView { // switch command will help nav to the next view when clicking that button on simulator
                 case .login:
                     LoginView()
                 case .registration:
