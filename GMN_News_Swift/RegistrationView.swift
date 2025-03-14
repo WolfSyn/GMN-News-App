@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @EnvironmentObject var viewModel: ViewModel
+    @EnvironmentObject var viewModel: Viewmodel
     @Environment(\.dismiss) var dismiss
     @State private var emailText = "" //This cooralates with "EMAIL"
     @State private var passwordText = "" // This coorlates with "PASSWORD"
